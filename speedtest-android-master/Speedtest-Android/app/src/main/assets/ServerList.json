@@ -1,0 +1,19 @@
+[
+  {
+    "name":"Helsinki, Finland",
+    "server":"//fi.openspeed.org",
+    "dlURL":"garbage.php",
+    "ulURL":"empty.php",
+    "pingURL":"empty.php",
+    "getIpURL":"getIP.php"
+  },
+
+  {
+    "name":"Frankfurt, Germany",
+    "server":"https://speedtest.fhaf.de",
+    "dlURL":"backend/garbage.php",
+    "ulURL":"backend/empty.php",
+    "pingURL":"backend/empty.php",
+    "getIpURL":"backend/getIP.php"
+  }
+]

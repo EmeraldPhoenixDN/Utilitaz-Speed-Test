@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ephoenixdn.utilitazspeedtest.ui.MainActivity"
+    android:background="@color/appBackground">
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:id="@+id/testBackground"
+        />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3200133008514457/5918566545">
+    <!--app:adUnitId="ca-app-pub-3200133008514457/5918566545">-->
+</com.google.android.gms.ads.AdView>
+<RelativeLayout
+   android:layout_width="match_parent"
+   android:layout_height="match_parent">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:id="@+id/page_splash"
+       android:visibility="invisible"
+       android:background="@color/splashBackground"
+       >
+
+       <ImageView
+           android:layout_width="@dimen/logo_maxWidth"
+           android:layout_height="wrap_content"
+           android:layout_margin="@dimen/margin_medium"
+           android:src="@drawable/logo" />
+
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:id="@+id/page_init"
+       android:visibility="invisible"
+       >
+
+       <ProgressBar
+           android:layout_width="wrap_content"
+           android:layout_height="@dimen/loading_size"
+           android:id="@+id/init_progress"
+           android:layout_centerHorizontal="true"
+           android:indeterminate="true"
+           android:indeterminateTint="@color/loadingColor"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="TEXT GOES HERE"
+           android:layout_toRightOf="@id/init_progress"
+           android:layout_toEndOf="@id/init_progress"
+           android:id="@+id/init_text"
+           android:layout_centerHorizontal="true"
+           android:textColor="@color/textColor"
+           android:textSize="@dimen/text"
+           />
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:id="@+id/page_fail"
+       android:visibility="invisible"
+       >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="ERROR DESCRIPTION"
+           android:id="@+id/fail_text"
+           android:layout_centerHorizontal="true"
+           android:textColor="@color/textColor"
+           android:textSize="@dimen/text"
+           />
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/margin_sep"
+           android:text="ACTION"
+           android:layout_centerHorizontal="true"
+           android:layout_below="@id/fail_text"
+           android:id="@+id/fail_button"
+           android:background="@color/failButton_background"
+           android:textColor="@color/failButton_text"
+           android:textSize="@dimen/failButton_text"
+           android:paddingLeft="@dimen/failButton_hPadding"
+           android:paddingRight="@dimen/failButton_hPadding"
+           android:paddingTop="@dimen/failButton_vPadding"
+           android:paddingBottom="@dimen/failButton_vPadding"
+           />
+
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:gravity="center"
+       android:id="@+id/page_serverSelect"
+       android:visibility="invisible"
+       >
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/serverSelect_message"
+           android:id="@+id/selectServer_message"
+           android:layout_centerHorizontal="true"
+           android:textColor="@color/textColor"
+           android:textSize="@dimen/text"
+           />
+
+       <Spinner
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/serverList"
+           android:layout_below="@id/selectServer_message"
+           android:layout_marginTop="@dimen/margin_largeSep"
+           android:layout_centerHorizontal="true"
+           android:textSize="@dimen/text"
+           />
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="@dimen/margin_sep"
+           android:text="@string/start"
+           android:id="@+id/start"
+           android:layout_centerHorizontal="true"
+           android:layout_below="@id/serverList"
+           android:background="@color/startButton_background"
+           android:textColor="@color/startButton_text"
+           android:textSize="@dimen/startButton_text"
+           android:paddingLeft="@dimen/startButton_hPadding"
+           android:paddingRight="@dimen/startButton_hPadding"
+           android:paddingTop="@dimen/startButton_vPadding"
+           android:paddingBottom="@dimen/startButton_vPadding"
+           />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/privacy_open"
+           android:layout_centerHorizontal="true"
+           android:paddingBottom="@dimen/margin_medium"
+           android:id="@+id/privacy_open"
+           android:layout_below="@id/start"
+           android:layout_marginTop="@dimen/margin_sep"
+           android:textColor="@color/privacyLinks"
+           android:textSize="@dimen/privacyLinks"
+           />
+
+   </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/page_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appBackground"
+        android:visibility="invisible">
+
+        <WebView
+            android:id="@+id/privacy_policy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/privacy_close"
+            android:layout_marginBottom="-18dp" />
+
+        <TextView
+            android:id="@+id/privacy_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_sep"
+            android:paddingBottom="@dimen/margin_medium"
+            android:text="@string/privacy_close"
+            android:textColor="@color/privacyLinks"
+            android:textSize="@dimen/privacyLinks" />
+
+    </RelativeLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/page_test"
+       android:visibility="invisible"
+       android:layout_centerVertical="true"
+       >
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_gravity="bottom|center_horizontal|fill_vertical"
+           android:gravity="center|fill_vertical"
+           android:padding="@dimen/margin_smallSep">
+
+           <ImageView
+               android:id="@+id/logo_inapp"
+               android:layout_width="wrap_content"
+               android:layout_height="@dimen/logo_inapp_height"
+               android:layout_marginBottom="@dimen/margin_smallSep"
+               android:src="@drawable/logo_inapp" />
+
+           <TextView
+               android:id="@+id/serverName"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/logo_inapp"
+               android:layout_marginBottom="@dimen/margin_sep"
+               android:gravity="center"
+               android:text="SERVER NAME"
+               android:textColor="@color/serverText"
+               android:textSize="@dimen/serverText"></TextView>
+
+           <LinearLayout
+               android:id="@+id/pingArea"
+               android:layout_width="@dimen/pingArea_maxWidth"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/serverName"
+               android:layout_centerHorizontal="true"
+               android:gravity="center">
+
+               <RelativeLayout
+                   android:id="@+id/pingRL"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="0.5">
+
+                   <TextView
+                       android:id="@+id/pingLabel"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:text="@string/test_ping"
+                       android:textColor="@color/textColor"
+                       android:textSize="@dimen/pingJitterLabel" />
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/pingLabel"
+                       android:layout_centerHorizontal="true">
+
+                       <TextView
+                           android:id="@+id/pingText"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-condensed-light"
+                           android:scrollHorizontally="false"
+                           android:singleLine="true"
+                           android:text="PING"
+                           android:textColor="@color/pingText"
+                           android:textSize="@dimen/pingJitterText"
+                           android:typeface="sans" />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignBaseline="@id/pingText"
+                           android:layout_marginStart="@dimen/margin_smallSep"
+                           android:layout_marginLeft="@dimen/margin_smallSep"
+                           android:layout_toRightOf="@id/pingText"
+                           android:text="@string/test_timeMeasure"
+                           android:textColor="@color/pingText"
+                           android:textSize="@dimen/timeMeasure" />
+                   </LinearLayout>
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_toEndOf="@id/pingRL"
+                   android:layout_toRightOf="@id/pingRL"
+                   android:layout_weight="0.5">
+
+                   <TextView
+                       android:id="@+id/jitterLabel"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentTop="false"
+                       android:gravity="center"
+                       android:text="@string/test_jitter"
+                       android:textColor="@color/textColor"
+                       android:textSize="@dimen/pingJitterLabel" />
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/jitterLabel"
+                       android:layout_centerHorizontal="true">
+
+                       <TextView
+                           android:id="@+id/jitterText"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:fontFamily="sans-serif-condensed-light"
+                           android:scrollHorizontally="false"
+                           android:singleLine="true"
+                           android:text="JITTER"
+                           android:textColor="@color/jitterText"
+                           android:textSize="@dimen/pingJitterText"
+                           android:typeface="sans" />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignBaseline="@id/jitterText"
+                           android:layout_marginStart="@dimen/margin_smallSep"
+                           android:layout_marginLeft="@dimen/margin_smallSep"
+                           android:layout_toRightOf="@id/jitterText"
+                           android:text="@string/test_timeMeasure"
+                           android:textColor="@color/jitterText"
+                           android:textSize="@dimen/timeMeasure" />
+                   </LinearLayout>
+               </RelativeLayout>
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/gaugeArea"
+               android:layout_width="@dimen/gaugeArea_maxWidth"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/pingArea"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="@dimen/margin_sep"
+               android:gravity="center">
+
+               <RelativeLayout
+                   android:id="@+id/dlArea"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="0.5">
+
+                   <TextView
+                       android:id="@+id/dlLabel"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerHorizontal="true"
+                       android:text="@string/test_dl"
+                       android:textColor="@color/textColor"
+                       android:textSize="@dimen/gaugeLabel" />
+
+                   <com.ephoenixdn.utilitazspeedtest.ui.GaugeView
+                       android:id="@+id/dlGauge"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/gaugeSize"
+                       android:layout_below="@id/dlLabel"
+                       android:layout_centerHorizontal="true"
+                       app:gauge_angles="270"
+                       app:gauge_backgroundColor="@color/gaugesBackground"
+                       app:gauge_fillColor="@color/dlGauge"
+                       app:gauge_startAngle="135"
+                       app:gauge_strokeWidth="@dimen/gaugeThickness" />
+
+                   <ProgressBar
+                       android:id="@+id/dlProgress"
+                       style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                       android:layout_width="@dimen/progressSize"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/dlGauge"
+                       android:layout_centerHorizontal="true"
+                       android:backgroundTint="@color/progressBackground"
+                       android:max="100"
+                       android:progressTint="@color/progressColor" />
+
+                   <TextView
+                       android:id="@+id/dlText"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerHorizontal="true"
+                       android:layout_centerVertical="true"
+                       android:fontFamily="sans-serif-condensed-light"
+                       android:scrollHorizontally="false"
+                       android:singleLine="true"
+                       android:text="DLOAD"
+                       android:textColor="@color/dlText"
+                       android:textSize="@dimen/gaugeText"
+                       android:typeface="sans" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignBottom="@id/dlGauge"
+                       android:layout_centerHorizontal="true"
+                       android:text="@string/test_speedMeasure"
+                       android:textSize="@dimen/speedMeasure" />
+               </RelativeLayout>
+
+               <RelativeLayout
+                   android:id="@+id/ulArea"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_toEndOf="@id/dlArea"
+                   android:layout_toRightOf="@id/dlArea"
+                   android:layout_weight="0.5">
+
+                   <TextView
+                       android:id="@+id/ulLabel"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerHorizontal="true"
+                       android:text="@string/test_ul"
+                       android:textColor="@color/textColor"
+                       android:textSize="@dimen/gaugeLabel" />
+
+                   <com.ephoenixdn.utilitazspeedtest.ui.GaugeView
+                       android:id="@+id/ulGauge"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/gaugeSize"
+                       android:layout_below="@id/ulLabel"
+                       android:layout_centerHorizontal="true"
+                       app:gauge_angles="270"
+                       app:gauge_backgroundColor="@color/gaugesBackground"
+                       app:gauge_fillColor="@color/ulGauge"
+                       app:gauge_startAngle="135"
+                       app:gauge_strokeWidth="@dimen/gaugeThickness" />
+
+                   <ProgressBar
+                       android:id="@+id/ulProgress"
+                       style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                       android:layout_width="@dimen/progressSize"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@id/ulGauge"
+                       android:layout_centerHorizontal="true"
+                       android:backgroundTint="@color/progressBackground"
+                       android:max="100"
+                       android:progressTint="@color/progressColor" />
+
+                   <TextView
+                       android:id="@+id/ulText"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerHorizontal="true"
+                       android:layout_centerVertical="true"
+                       android:fontFamily="sans-serif-condensed-light"
+                       android:scrollHorizontally="false"
+                       android:singleLine="true"
+                       android:text="ULOAD"
+                       android:textColor="@color/ulText"
+                       android:textSize="@dimen/gaugeText"
+                       android:typeface="sans" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignBottom="@id/ulGauge"
+                       android:layout_centerHorizontal="true"
+                       android:text="@string/test_speedMeasure"
+                       android:textSize="@dimen/speedMeasure" />
+               </RelativeLayout>
+           </LinearLayout>
+
+           <TextView
+               android:id="@+id/ipInfo"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/gaugeArea"
+               android:layout_centerHorizontal="true"
+               android:layout_marginTop="@dimen/margin_sep"
+               android:ellipsize="none"
+               android:gravity="center"
+               android:maxLines="100"
+               android:scrollHorizontally="false"
+               android:text="IP ADDRESS - ISP NAME (DISTANCE)"
+               android:textColor="@color/textColor"
+               android:textSize="@dimen/ipInfoText" />
+
+           <LinearLayout
+               android:id="@+id/endTestArea"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/ipInfo"
+               android:layout_marginTop="@dimen/margin_sep"
+               android:gravity="center">
+
+               <Button
+                   android:id="@+id/restartButton"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginEnd="@dimen/margin_smallSep"
+                   android:layout_marginRight="@dimen/margin_smallSep"
+                   android:background="@color/restartButton_background"
+                   android:enabled="true"
+                   android:paddingLeft="@dimen/restartButton_hPadding"
+                   android:paddingTop="@dimen/restartButton_vPadding"
+                   android:paddingRight="@dimen/restartButton_hPadding"
+                   android:paddingBottom="@dimen/restartButton_vPadding"
+                   android:text="@string/test_restart"
+                   android:textColor="@color/restartButton_text"
+                   android:textSize="@dimen/restartButton_text" />
+
+               <Button
+                   android:id="@+id/shareButton"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:background="@color/shareButton_background"
+                   android:paddingLeft="@dimen/shareButton_hPadding"
+                   android:paddingTop="@dimen/shareButton_vPadding"
+                   android:paddingRight="@dimen/shareButton_hPadding"
+                   android:paddingBottom="@dimen/shareButton_vPadding"
+                   android:text="@string/test_share"
+                   android:textColor="@color/shareButton_text"
+                   android:textSize="@dimen/shareButton_text"
+
+                   tools:visibility="visible" />
+           </LinearLayout>
+
+       </RelativeLayout>
+   </ScrollView>
+
+
+</RelativeLayout>
+
+</FrameLayout>
